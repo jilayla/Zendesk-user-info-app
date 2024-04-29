@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    crossorigin="anonymous">
+  <link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div id="content"></div>
+
+  <footer>
+    <a href="https://github.com/jilayla/Zendesk-user-info-app/issues" target="_blank">Report bugs</a>
+  </footer>
+
+  <script id="requester-template" type="text/x-handlebars-template">
+    <table>
+      <tr>
+        <td>Name:</td>
+        <td class="data">{{name}}</td>
+      </tr>
+      <tr>
+        <td>URL:</td>
+        <td class="data">{{userUrl}}</td>
+      </tr>
+      <!-- username -->
+      <tr>
+        <td>Username:</td>
+        <td class="data"><input type="text" id="username" value="{{username}}"></td>
+      </tr>
+      {{#if tags}}
+      <tr>
+        <td>Tags:</td>
+        <td class="data">{{#each tags}}{{this}} {{/each}}</td>
+      </tr>
+      {{/if}}
+      <tr>
+        <td>Pro:</td>
+        <td class="data">{{isPro}}</td>
+      </tr>
+      <tr>
+        <td>Premium:</td>
+        <td class="data">{{isPremium}}</td>
+      </tr>
+      <!-- username_2 -->
+      <tr>
+        <td>Username 2:</td>
+        <td class="data"><input type="text" id="username_2" value="{{username_2}}"></td>
+      </tr>
+      {{#if username_2}}
+      <tr>
+        <td>URL:</td>
+        <td class="data">{{userUrl_2}}</td>
+      </tr>
+      <tr>
+        <td>Pro:</td>
+        <td class="data">{{isPro_2}}</td>
+      </tr>
+      <tr>
+        <td>Premium:</td>
+        <td class="data">{{isPremium_2}}</td>
+      </tr>
+      {{/if}}
+      <!-- username_3 -->
+      <tr>
+        <td>Username 3:</td>
+        <td class="data"><input type="text" id="username_3" value="{{username_3}}"></td>
+      </tr>
+      {{#if username_3}}
+      <tr>
+        <td>URL:</td>
+        <td class="data">{{userUrl_3}}</td>
+      </tr>
+      <tr>
+        <td>Pro:</td>
+        <td class="data">{{isPro_3}}</td>
+      </tr>
+      <tr>
+        <td>Premium:</td>
+        <td class="data">{{isPremium_3}}</td>
+      </tr>
+      {{/if}}
+    </table>
+  </script>
+
+  <script id="error-template" type="text/x-handlebars-template">
+    <p>{{status}} - {{statusText}} error. Please report a bug at the link below.</p>
+  </script>
+
+  <script src="https://static.zdassets.com/zendesk_app_framework_sdk/2.0/zaf_sdk.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@4.3.3/dist/handlebars.min.js"></script>
+  <script src="main.js"></script>
+
+  <script>
+    // Add event listeners to username inputs
+    document.addEventListener("DOMContentLoaded", function () {
+      var usernameInput = document.getElementById("username");
+      var username2Input = document.getElementById("username_2");
+      var username3Input = document.getElementById("username_3");
+
+      if (usernameInput) {
+        usernameInput.addEventListener("change", function () {
+          console.log("Username input changed");
+          updateUserField(client, user_id, 'username', this.value);
+        });
+      }
+
+      if (username2Input) {
+        username2Input.addEventListener("change", function () {
+          console.log("Username 2 input changed");
+          updateUserField(client, user_id, 'username_2', this.value);
+        });
+      }
+
+      if (username3Input) {
+        username3Input.addEventListener("change", function () {
+          console.log("Username 3 input changed");
+          updateUserField(client, user_id, 'username_3', this.value);
+        });
+      }
+    });
+  </script>
+
+</body>
+
+</html>
