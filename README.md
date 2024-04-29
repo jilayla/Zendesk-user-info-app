@@ -11,4 +11,4 @@ The Zendesk User Info App is a tool designed to enhance user management within Z
 Please submit bug reports to [this link](https://github.com/jilayla/Zendesk-user-info-app/issues).
 
 ### Screenshot(s):
-![Zendesk app](https://github.com/jilayla/Zendesk-user-info-app/assets/151676387/e8a3e56d-76a3-4e47-ac83-5cd0f2d393b8)
+<img width="340" alt="Zendesk app" src="https://github.com/jilayla/Zendesk-user-info-app/assets/151676387/348864b8-4736-434e-84cc-4803aee96fae">
